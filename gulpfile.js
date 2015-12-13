@@ -1,0 +1,136 @@
+var gulp = require('gulp');
+var jest = require('gulp-jest-iojs');
+var babel = require('gulp-babel');
+var concat = require('gulp-concat');
+var rimraf = require('gulp-rimraf');
+var webpack = require('webpack-stream');
+var sass = require('gulp-sass');
+var cssmin = require('gulp-cssmin');
+var rename = require('gulp-rename');
+var connect = require('gulp-connect');
+
+var paths = {
+    tests: 'spec/'
+};
+
+gulp.task('jest', function () {
+    return gulp.src(paths.tests)
+        .pipe(jest({
+            scriptPreprocessor: "../node_modules/gulp-jest-iojs/preprocessor.js",
+            unmockedModulePathPatterns: [
+                "../node_modules/react",
+                "../node_modules/fbjs",
+                "../node_modules/react-dom",
+                "../node_modules/react-addons-test-utils"
+            ],
+            testDirectoryName: "spec",
+            testPathIgnorePatterns: [
+                "node_modules"
+            ],
+            moduleFileExtensions: [
+                "js",
+                "react"
+            ]
+        }));
+});
+
+gulp.task('cleanJS', function () {
+    return gulp.src('public/**/*.js', {read: false})
+        .pipe(rimraf({force: true}));
+});
+
+gulp.task('concat', ['cleanJS'], function () {
+    return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
+        .pipe(concat('vendor.js'))
+        .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('webpack', ['concat'], function () {
+    return gulp.src('src/js/app.js')
+        .pipe(webpack({
+            module: {
+                loaders: [
+                    {
+                        test: /\.jsx?$/,
+                        exclude: /node_modules/,
+                        loader: 'babel',
+                        query: {
+                            presets: ['react', 'es2015']
+                        }
+                    }
+                ]
+            },
+            output: {
+                filename: 'main.js',
+            },
+        }))
+        .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('cleanAssets', function () {
+    return gulp.src(['public/fonts', 'public/img'], {read: false})
+        .pipe(rimraf({force: true}));
+});
+
+gulp.task('copyAssets', ['cleanAssets'], function () {
+    gulp.src('src/fonts')
+        .pipe(gulp.dest('public/fonts'));
+    gulp.src('src/img')
+        .pipe(gulp.dest('public/img'));
+});
+
+gulp.task('copyCSS', function () {
+    return gulp.src('src/css/*.css')
+        .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('sass', function () {
+    gulp.src('src/css/sass/main.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('cssmin', ['sass', 'copyCSS'], function () {
+    gulp.src('public/css/*.css')
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('connect', function () {
+    connect.server({
+        root: '.',
+        livereload: true
+    });
+});
+
+gulp.task('html', function () {
+    gulp.src('./index.html')
+        .pipe(connect.reload());
+});
+
+gulp.task('watch', function () {
+    gulp.watch(['./*.html'], ['html']);
+    gulp.watch(['./src/js/**/*.js'], ['webpack']);
+    gulp.watch(['./src/css/sass/*.scss'], ['sass']);
+    gulp.watch(['./public/css/**.css'], ['cssmin']);
+});
+
+gulp.task('default', ['connect', 'watch']);
+
+gulp.task('test', ['jest']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

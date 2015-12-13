@@ -1,0 +1,46 @@
+$grey-color: #eeeeee;
+$blue-color: #3bc8e2;
+$grey-dark-color: #8c898b;
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Kootenay W04", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  .feeds {
+    .feed {
+      margin: 20px;
+      background-color: $grey-color;
+      text-align: left;
+      border-radius: 6px;
+      max-width: 33%;
+      display: inline-block;
+      .main-photo {
+        width: 100%;
+      }
+      .feed-content {
+        padding-left: 10px;
+        .feed-title {
+          color: $blue-color;
+          font-size: 1.2rem;
+          font-weight: normal;
+        }
+        .feed-summary {
+          color: $grey-dark-color;
+        }
+        .feed-banner {
+          margin-bottom: 5px;
+          .feed-source {
+            color: $grey-dark-color;
+          }
+          .icon-star-empty {
+            padding: 0 10px 10px 0;
+            color: $blue-color;
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

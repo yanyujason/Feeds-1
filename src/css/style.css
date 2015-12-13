@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?axdxr9');
+    src: url('../fonts/icomoon.eot?axdxr9#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?axdxr9') format('truetype'),
+    url('../fonts/icomoon.woff?axdxr9') format('woff'),
+    url('../fonts/icomoon.svg?axdxr9#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+    content: "\e900";
+}
+
+.icon-cog:before {
+    content: "\e901";
+}
+
+.icon-list:before {
+    content: "\e902";
+}
+
+.icon-bookmark:before {
+    content: "\e903";
+}
+
+.icon-star-empty:before {
+    content: "\e904";
+}
+
+.icon-star-full:before {
+    content: "\e905";
+}
+
+.icon-table2:before {
+    content: "\e906";
+}
+
+.icon-feed2:before {
+    content: "\e907";
+}
