@@ -97,7 +97,7 @@ gulp.task('cssmin', ['sass', 'copyCSS'], function () {
         .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('connect', function () {
+gulp.task('connect', ['webpack','cssmin','copyAssets'],function () {
     connect.server({
         root: '.',
         livereload: true
