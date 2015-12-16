@@ -72,14 +72,19 @@ gulp.task('cleanAssets', function () {
         .pipe(rimraf({force: true}));
 });
 
-gulp.task('copyAssets', ['cleanAssets'], function () {
-    gulp.src('src/fonts')
+gulp.task('copyAssets', ['cleanAssets'],function () {
+    gulp.src('src/fonts/*')
         .pipe(gulp.dest('public/fonts'));
-    gulp.src('src/img')
+    gulp.src('src/img/*')
         .pipe(gulp.dest('public/img'));
 });
 
-gulp.task('copyCSS', function () {
+gulp.task('cleanCSS', function () {
+    return gulp.src('public/**/*.css', {read: false})
+        .pipe(rimraf({force: true}));
+});
+
+gulp.task('copyCSS',['cleanCSS'], function () {
     return gulp.src('src/css/*.css')
         .pipe(gulp.dest('public/css'));
 });
@@ -97,7 +102,7 @@ gulp.task('cssmin', ['sass', 'copyCSS'], function () {
         .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('connect', ['webpack','cssmin','copyAssets'],function () {
+gulp.task('connect',['copyAssets','cssmin', 'webpack'],function () {
     connect.server({
         root: '.',
         livereload: true
@@ -119,18 +124,3 @@ gulp.task('watch', function () {
 gulp.task('default', ['connect', 'watch']);
 
 gulp.task('test', ['jest']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
