@@ -7,7 +7,7 @@ var webpack = require('webpack-stream');
 var sass = require('gulp-sass');
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
-var connect = require('gulp-connect');
+var webserver = require('gulp-webserver');
 
 var paths = {
     tests: 'spec/'
@@ -102,25 +102,18 @@ gulp.task('cssmin', ['sass', 'copyCSS'], function () {
         .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('connect',['copyAssets','cssmin', 'webpack'],function () {
-    connect.server({
-        root: '.',
-        livereload: true
-    });
-});
-
-gulp.task('html', function () {
-    gulp.src('./index.html')
-        .pipe(connect.reload());
+gulp.task('webserver', ['copyAssets','cssmin', 'webpack'],function() {
+  gulp.src('.')
+    .pipe(webserver({
+      livereload: true,
+    }));
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./*.html'], ['html']);
     gulp.watch(['./src/js/**/*.js'], ['webpack']);
-    gulp.watch(['./src/css/sass/*.scss'], ['sass']);
-    gulp.watch(['./public/css/**.css'], ['cssmin']);
+    gulp.watch(['./src/css/sass/*.scss'], ['cssmin']);
 });
 
-gulp.task('default', ['connect']);
+gulp.task('default', ['webserver']);
 
 gulp.task('test', ['jest']);
