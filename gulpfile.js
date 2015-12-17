@@ -121,6 +121,6 @@ gulp.task('watch', function () {
     gulp.watch(['./public/css/**.css'], ['cssmin']);
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['connect']);
 
 gulp.task('test', ['jest']);
