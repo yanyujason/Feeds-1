@@ -12,7 +12,7 @@ describe('Feed', function () {
         "title": "A Title",
         "summary": "This is the summary",
         "source": "icodeit.org"
-    }
+    };
 
     const component = TestUtils.renderIntoDocument(
         <Feed key={feedData.id} feed={feedData}/>
