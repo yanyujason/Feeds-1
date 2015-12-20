@@ -61,8 +61,8 @@ gulp.task('webpack', ['concat'], function () {
                 ]
             },
             output: {
-                filename: 'main.js',
-            },
+                filename: 'main.js'
+            }
         }))
         .pipe(gulp.dest('public/js'));
 });

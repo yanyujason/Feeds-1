@@ -14,3 +14,16 @@ $ git clone https://git.thoughtworks.net/feeds/Feeds.gi$ cd
 $ npm install && npm start
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
+
+### How to build package
+
+Run below commands in iterm to install package
+$ npm install electron-packager --save-dev
+$ npm install electron-packager -g
+// use sudo if got permission issue
+
+Run below command to build app 
+$ electron-packager . Feeds --platform=darwin --arch=x64 --version=0.28.2
+// Packaging app for platform darwin x64 using electron v0.28.2
+
+// if the app already there, append "--overwrite=force" in the command line
