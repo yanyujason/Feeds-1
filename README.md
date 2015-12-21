@@ -8,12 +8,24 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 bash
 
-$ git clone https://git.thoughtworks.net/feeds/Feeds.gi$ cd
- Feeds
+$ git clone https://github.com/litongxin/Feeds.git
+$ cd Feeds
 
 $ npm install && npm start
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
+
+### How to run unit test
+
+Use jest test framework for my feeds
+$gulp jest
+
+### How to start and develop app locally
+
+$gulp webserver
+
+after running gulp webserver, you can use watch task to apply the changes ASAP
+$gulp watch
 
 ### How to build package
 
