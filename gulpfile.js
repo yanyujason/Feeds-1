@@ -90,20 +90,20 @@ gulp.task('copyCSS',['cleanCSS'], function () {
 });
 
 gulp.task('sass', function () {
-    gulp.src('src/css/sass/main.scss')
+    return gulp.src('src/css/sass/main.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('cssmin', ['sass', 'copyCSS'], function () {
-    gulp.src('public/css/*.css')
+    return gulp.src('public/css/*.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('webserver', ['copyAssets','cssmin', 'webpack'],function() {
-  gulp.src('.')
+  return gulp.src('.')
     .pipe(webserver({
       livereload: true,
     }));
