@@ -3,8 +3,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const _ = require('lodash');
 
-const Feeds = require('./components/Feeds');
+const Page = require('./components/Page');
 
 $(function () {
-    ReactDOM.render(<Feeds />, document.getElementById('container'));
+    ReactDOM.render(<Page />, document.getElementById('container'));
 });
