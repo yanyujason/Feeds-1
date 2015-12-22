@@ -4,6 +4,7 @@ const React = require('react');
 const TestUtils = require('react-addons-test-utils');
 const Page = require('../../src/js/components/Page');
 const Banner = require('../../src/js/components/Banner');
+const Navigation = require('../../src/js/components/Navigation');
 const Feeds = require('../../src/js/components/Feeds');
 
 describe('Page', function () {
@@ -21,6 +22,12 @@ describe('Page', function () {
         const banner = TestUtils.scryRenderedComponentsWithType(component, Banner);
 
         expect(banner.length).toEqual(1);
+    });
+
+    it('should render navigation correctly', function(){
+        const navigation = TestUtils.scryRenderedComponentsWithType(component, Navigation);
+
+        expect(navigation.length).toEqual(1);
     });
 
     it('should render feeds correctly', function(){

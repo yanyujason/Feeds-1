@@ -2,6 +2,11 @@ $white-color: #ffffff;
 $grey-color: #eeeeee;
 $blue-color: #3bc8e2;
 $grey-dark-color: #8c898b;
+$black-color: #263238;
+
+html, body, #container, .page {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -13,7 +18,7 @@ body {
     .banner {
       height: 50px;
       background-color: $blue-color;
-      .icon-search{
+      .icon-search {
         line-height: 50px;
         vertical-align: middle;
         padding-left: 10%;
@@ -21,7 +26,41 @@ body {
       }
     }
     .page-content {
+      display: flex;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      .navigation {
+        width: 25%;
+        min-width: 180px;
+        align-items: stretch;
+        background-color: $black-color;
+        position: relative;
+        .nav-item {
+          align-items: center;
+          padding: 15px 25%;
+          color: $white-color;
+          [class*='icon-'] {
+            color: $blue-color;
+            margin-right: 10px;
+          }
+          &:first-child {
+            margin-top: 100px;
+          }
+          &:last-child {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-top: 2px solid $blue-color;
+          }
+        }
+      }
       .feeds {
+        width: 75%;
+        align-items: stretch;
         .feed {
           margin: 20px;
           background-color: $grey-color;

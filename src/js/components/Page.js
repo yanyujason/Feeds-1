@@ -1,6 +1,7 @@
 const React = require('react');
 const Banner = require('./Banner');
 const Feeds = require('./Feeds');
+const Navigation = require('./Navigation');
 
 module.exports = React.createClass({
     render() {
@@ -8,7 +9,8 @@ module.exports = React.createClass({
             <div className="page">
                 <Banner/>
                 <div className="page-content">
-                   <Feeds />
+                    <Navigation />
+                    <Feeds />
                 </div>
             </div>
         );
