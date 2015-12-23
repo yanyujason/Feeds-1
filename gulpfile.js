@@ -102,7 +102,7 @@ gulp.task('cssmin', ['sass', 'copyCSS'], function () {
         .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('webserver', ['copyAssets','cssmin', 'webpack'],function() {
+gulp.task('start', ['copyAssets','cssmin', 'webpack'],function() {
   return gulp.src('.')
     .pipe(webserver({
       livereload: true,
@@ -114,6 +114,6 @@ gulp.task('watch', function () {
     gulp.watch(['./src/css/sass/*.scss'], ['cssmin']);
 });
 
-gulp.task('default', ['webserver']);
+gulp.task('default', ['test']);
 
 gulp.task('test', ['jest']);
