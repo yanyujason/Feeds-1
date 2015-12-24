@@ -4,7 +4,8 @@
   "description": "An awesome feed reader",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "gulp start",
+    "startApp": "electron main.js"
   },
   "repository": {
     "type": "git",
