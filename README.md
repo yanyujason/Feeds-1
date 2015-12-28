@@ -22,10 +22,13 @@ $gulp jest
 
 ### How to start and develop app locally
 
-$gulp webserver
+$npm start
 
 after running gulp webserver, you can use watch task to apply the changes ASAP
 $gulp watch
+
+$npm run startApp
+// start app
 
 ### How to build package
 
@@ -39,3 +42,6 @@ $ electron-packager . Feeds --platform=darwin --arch=x64 --version=0.28.2
 // Packaging app for platform darwin x64 using electron v0.28.2
 
 // if the app already there, append "--overwrite=force" in the command line
+
+### Trouble shooting
+1. If the test didn't run successfully, upgrade to node 4 (run brew update first)

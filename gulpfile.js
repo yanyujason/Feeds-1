@@ -105,7 +105,7 @@ gulp.task('cssmin', ['sass', 'copyCSS'], function () {
 gulp.task('start', ['copyAssets','cssmin', 'webpack'],function() {
   return gulp.src('.')
     .pipe(webserver({
-      livereload: true,
+      livereload: true
     }));
 });
 
