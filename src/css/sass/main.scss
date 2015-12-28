@@ -62,11 +62,12 @@ body {
         width: 75%;
         align-items: stretch;
         .feed {
-          margin: 20px;
+          margin-left: 50px;
+          margin-top: 45px;
           background-color: $grey-color;
           text-align: left;
           border-radius: 8px;
-          max-width: 33%;
+          max-width: 24%;
           display: inline-block;
           .main-photo {
             width: 100%;
@@ -76,14 +77,16 @@ body {
             padding-left: 10px;
             .feed-title {
               color: $blue-color;
-              font-size: 1.2rem;
+              font-size: 1.0rem;
               font-weight: normal;
             }
             .feed-summary {
               color: $grey-dark-color;
+              font-size: 0.9rem;
             }
             .feed-banner {
               margin-bottom: 5px;
+              font-size: 0.9rem;
               .feed-source {
                 color: $grey-dark-color;
               }
