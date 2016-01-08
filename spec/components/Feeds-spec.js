@@ -6,25 +6,8 @@ const Feeds = require('../../src/js/components/Feeds');
 const Feed = require('../../src/js/components/Feed');
 
 describe('Feeds', function () {
-    const feedsData = [
-        {
-            "id": "1",
-            "imageUrl": "www.test.com/main.jpg",
-            "title": "Title 1",
-            "summary": "This is the summary",
-            "source": "icodeit.org"
-        },
-        {
-            "id": "2",
-            "imageUrl": "www.test.com/main.jpg",
-            "title": "Title 2",
-            "summary": "This is the summary",
-            "source": "icodeit.org"
-        }
-    ];
-
     const component = TestUtils.renderIntoDocument(
-        <Feeds feeds={feedsData}/>
+        <Feeds />
     );
 
     it('should render correctly', function () {

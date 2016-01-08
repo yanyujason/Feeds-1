@@ -20,6 +20,7 @@ describe('Feed', function () {
 
     it('should render correctly', function () {
         const feed = TestUtils.scryRenderedComponentsWithType(component, Feed);
+
         expect(feed.length).toEqual(1);
     });
 
