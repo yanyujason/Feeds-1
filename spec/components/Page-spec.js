@@ -1,13 +1,16 @@
 jest.dontMock('../../src/js/components/Page');
 
 const React = require('react');
-const TestUtils = require('react-addons-test-utils');
+const TestUtils = require('react-addons-test-utils')
 const Page = require('../../src/js/components/Page');
 const Banner = require('../../src/js/components/Banner');
 const Navigation = require('../../src/js/components/Navigation');
 const Feeds = require('../../src/js/components/Feeds');
 
 describe('Page', function () {
+    $ = jest.genMockFunction();
+    $.ajax = jest.genMockFunction();
+
     const component = TestUtils.renderIntoDocument(
         <Page />
     );

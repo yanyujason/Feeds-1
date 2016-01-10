@@ -1,38 +1,41 @@
 'use strict';
 
 const React = require('react');
-const Feed = require('./Feed');
 const _ = require('lodash');
+const Feed = require('./Feed');
+const FeedApiService = require('../helper/FeedApiService');
+const FeedRequestBuilder = require('../helper/FeedRequestBuilder');
 
 module.exports = React.createClass({
-    getInitialState() {
-        var data = [
-            {
-                "id": "1",
-                "title": "Title 1",
-                "summary": "This is the summary",
-                "source": "icodeit.org"
-            },
-            {
-                "id": "2",
-                "title": "Title 2",
-                "summary": "This is the summary",
-                "source": "icodeit.org"
-            }
-        ];
+  getInitialState() {
+    return {feeds: []};
+  },
 
-        return {feeds: data};
-    },
+  ajaxError () {
 
-    render(){
-        let feeds = _.map(this.state.feeds, function (feed) {
-            return <Feed key={feed.id} feed={feed}/>;
-        });
+  },
 
-        return (
-            <div className="feeds">
-                {feeds}
-            </div>
-        );
-    }
+  componentDidMount(){
+    let self = this;
+    let successHandler = function (data) {
+      self.setState({feeds: data})
+    };
+    let errorHandler = function (data) {
+      self.ajaxError(data);
+    };
+
+    FeedApiService.fetchData(FeedRequestBuilder.createFeedRequest({"uid": "1"}), successHandler, errorHandler);
+  },
+
+  render(){
+    let feeds = _.map(this.state.feeds, function (feed) {
+      return <Feed key={feed.id} feed={feed}/>;
+    });
+
+    return (
+      <div className="feeds">
+        {feeds}
+      </div>
+    );
+  }
 });
