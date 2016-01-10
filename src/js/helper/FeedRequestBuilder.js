@@ -1,7 +1,7 @@
 var FeedRequestBuilder = function () {
   var api = {};
-  //var hostname = "mighty-sierra-1572.herokuapp.com";
-  var hostname = "localhost:4000";
+  var hostname = "mighty-sierra-1572.herokuapp.com";
+  //var hostname = "localhost:4000";
 
   api.createFeedRequest = function (params) {
     var feedRequest = {};
