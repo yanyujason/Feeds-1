@@ -1,5 +1,7 @@
 ## [Feeds](https://github.com/litongxin/Feeds/)[![Build Status](https://travis-ci.org/litongxin/Feeds.svg?branch=master)](https://travis-ci.org/litongxin/Feeds)
 
+[![Join the chat at https://gitter.im/litongxin/Feeds](https://badges.gitter.im/litongxin/Feeds.svg)](https://gitter.im/litongxin/Feeds?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ### This is an awesome feed reader, use this app to manage your feeds.
 
 ## To Use
