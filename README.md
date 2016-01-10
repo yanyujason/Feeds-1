@@ -22,13 +22,20 @@ $gulp jest
 
 ### How to start and develop app locally
 
-$npm start
+$npm start or $gulp start
 
-after running gulp webserver, you can use watch task to apply the changes ASAP
+After running gulp start, you can use watch task to apply the changes ASAP
+
 $gulp watch
 
 $npm run startApp
-// start app
+
+=======
+### How to mock api locally
+
+$npm run mockApi
+
+After running npm run mockApi, make sure set _var hostname = "localhost:4000";_ in FeedRequestBuilder.js
 
 ### How to build package
 
