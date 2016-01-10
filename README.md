@@ -1,4 +1,4 @@
-## Feeds
+## [Feeds](https://github.com/litongxin/Feeds/)[![Build Status](https://travis-ci.org/litongxin/Feeds.svg?branch=master)](https://travis-ci.org/litongxin/Feeds)
 
 ### This is an awesome feed reader, use this app to manage your feeds.
 
