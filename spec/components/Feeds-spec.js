@@ -1,11 +1,7 @@
 jest.dontMock('../../src/js/components/Feeds');
 
-const React = require('react');
-const TestUtils = require('react-addons-test-utils');
-const Feeds = require('../../src/js/components/Feeds');
-const Feed = require('../../src/js/components/Feed');
-const feedApiService = require('../../src/js/helper/FeedApiService');
-const feedRequestBuilder = require('../../src/js/helper/FeedRequestBuilder');
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 
 describe('Feeds', function () {
   const feedsData = [
@@ -24,15 +20,19 @@ describe('Feeds', function () {
       "source": "icodeit.org"
     }
   ];
-  const requestUrl = "https://feedApi.com/feeds";
 
-  //feedRequestBuilder.createFeedRequest = jest.genMockFunction().mockImplementation(function () {
+  const Feeds = require('../../src/js/components/Feeds');
+  const Feed = require('../../src/js/components/Feed');
+  const FeedApiService = require('../../src/js/helper/FeedApiService');
+  const FeedRequestBuilder = require('../../src/js/helper/FeedRequestBuilder');
+  //const requestUrl = "https://feedApi.com/feeds";
+  //FeedRequestBuilder.createFeedRequest = jest.genMockFunction().mockImplementation(function () {
   //  var mockRequest = {};
   //  mockRequest.url = requestUrl;
   //  return mockRequest;
   //});
 
-  feedApiService.fetchData = jest.genMockFunction();
+  FeedApiService.fetchData = jest.genMockFunction();
   const component = TestUtils.renderIntoDocument(
     <Feeds />
   );

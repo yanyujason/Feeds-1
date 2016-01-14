@@ -1,10 +1,10 @@
 jest.dontMock('../../src/js/components/Navigation');
 
-const React = require('react');
-const TestUtils = require('react-addons-test-utils');
-const Navigation = require('../../src/js/components/Navigation');
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 
 describe('Navigation', function () {
+    const Navigation = require('../../src/js/components/Navigation');
     const component = TestUtils.renderIntoDocument(
         <Navigation />
     );

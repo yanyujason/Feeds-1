@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-//var jest = require('gulp-jest-iojs');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var rimraf = require('gulp-rimraf');
@@ -10,31 +9,6 @@ var rename = require('gulp-rename');
 var webserver = require('gulp-webserver');
 var jest = require('jest-cli');
 
-//var paths = {
-//  tests: 'spec/'
-//};
-//
-//gulp.task('jest', function () {
-//  return gulp.src(paths.tests)
-//    .pipe(jest({
-//      scriptPreprocessor: "../node_modules/gulp-jest-iojs/preprocessor.js",
-//      unmockedModulePathPatterns: [
-//        "../node_modules/react",
-//        "../node_modules/fbjs",
-//        "../node_modules/react-dom",
-//        "../node_modules/react-addons-test-utils"
-//      ],
-//      testDirectoryName: "spec",
-//      testPathIgnorePatterns: [
-//        "node_modules"
-//      ],
-//      moduleFileExtensions: [
-//        "js",
-//        "react"
-//      ]
-//    }));
-//});
-
 var jestOptions = {
   rootDir: process.cwd(),
   testDirectoryName: 'spec',
@@ -44,7 +18,9 @@ var jestOptions = {
     "node_modules/react-dom",
     "node_modules/react-addons-test-utils"
   ],
-  scriptPreprocessor: "node_modules/gulp-jest-iojs/preprocessor.js",
+  "scriptPreprocessor": "node_modules/babel-jest",
+  "testFileExtensions": ["es6", "js"],
+  "moduleFileExtensions": ["js", "json", "es6"]
 };
 
 gulp.task('jest', function (callback) {
@@ -53,7 +29,7 @@ gulp.task('jest', function (callback) {
     if (success) {
       callback();
     } else {
-      error = new Error('one or more tests failed');
+      error = new Error('unit tests failed');
       error.showStack = false;
       callback(error);
     }

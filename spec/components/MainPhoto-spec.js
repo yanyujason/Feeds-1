@@ -1,11 +1,11 @@
 jest.dontMock('../../src/js/components/MainPhoto');
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const TestUtils = require('react-addons-test-utils');
-const MainPhoto = require('../../src/js/components/MainPhoto');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
 
 describe('MainPhoto', function () {
+    const MainPhoto = require('../../src/js/components/MainPhoto');
     const componentWithImageUrl = TestUtils.renderIntoDocument(
         <MainPhoto imageUrl="www.test.com/main.jpg"/>
     );

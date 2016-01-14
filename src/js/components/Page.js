@@ -1,7 +1,7 @@
-const React = require('react');
-const Banner = require('./Banner');
-const Feeds = require('./Feeds');
-const Navigation = require('./Navigation');
+import React from 'react';
+import Banner from './Banner';
+import Feeds from './Feeds';
+import Navigation from './Navigation';
 
 module.exports = React.createClass({
     render() {

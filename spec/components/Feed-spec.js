@@ -1,9 +1,7 @@
 jest.dontMock('../../src/js/components/Feed');
 
-const React = require('react');
-const TestUtils = require('react-addons-test-utils');
-const Feed = require('../../src/js/components/Feed');
-const MainPhoto = require('../../src/js/components/MainPhoto');
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 
 describe('Feed', function () {
     const feedData = {
@@ -14,6 +12,8 @@ describe('Feed', function () {
         "source": "icodeit.org"
     };
 
+    const Feed = require('../../src/js/components/Feed');
+    const MainPhoto = require('../../src/js/components/MainPhoto');
     const component = TestUtils.renderIntoDocument(
         <Feed key={feedData.id} feed={feedData}/>
     );

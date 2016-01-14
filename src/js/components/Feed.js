@@ -1,6 +1,6 @@
 'use strict';
-const React = require('react');
-const MainPhoto = require('./MainPhoto');
+import React from 'react';
+import MainPhoto from './MainPhoto';
 
 module.exports = React.createClass({
     render(){

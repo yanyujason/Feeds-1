@@ -1,4 +1,4 @@
-const FeedApiService = function () {
+var FeedApiService = function () {
   var api = {};
   var $ = require('jquery');
 

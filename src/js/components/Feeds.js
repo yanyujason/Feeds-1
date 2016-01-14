@@ -1,10 +1,10 @@
 'use strict';
 
-const React = require('react');
-const _ = require('lodash');
-const Feed = require('./Feed');
-const FeedApiService = require('../helper/FeedApiService');
-const FeedRequestBuilder = require('../helper/FeedRequestBuilder');
+import React from 'react';
+import _ from 'lodash';
+import Feed from './Feed';
+import FeedApiService from '../helper/FeedApiService';
+import FeedRequestBuilder from '../helper/FeedRequestBuilder';
 
 module.exports = React.createClass({
   getInitialState() {
